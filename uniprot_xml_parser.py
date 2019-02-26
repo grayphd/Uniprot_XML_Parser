@@ -11,7 +11,11 @@ def get_namespaces(path):
             events=('start', 'end', 'start-ns', 'end-ns')):
         if event == 'start-ns':
             ns, url = elem
-            nsmap[ns] = url
+            nsmap[ns] = url #this eats a lot of memory i think 
+        elif event == 'end-ns':
+            pass
+        else:
+            elem.clear()
 
     print(nsmap)
 
@@ -31,7 +35,8 @@ def parse_xml2(path):
 def main():
     #path = '/home/apluser/Data/xml_data/employees.xml'
     #path = '/home/apluser/uniprot_test_small_2_entry.xml'
-    path = '/home/apluser/uniprot_sprot.xml'
+    #path = '/home/apluser/uniprot_sprot.xml'
+    path = '/home/mcdansl1/Data/uniprot_sprot.xml'
     #parse_xml2(path)
     get_namespaces(path)
     #parse_xml(path)
