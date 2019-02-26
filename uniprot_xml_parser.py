@@ -3,7 +3,7 @@ import xml.etree.ElementTree as etree
 
 def get_namespaces(path):
     """
-    Grabs the various namesspaces in the xml document 
+    Grabs the various namesspaces in the xml document
     """
     nsmap = {}
     for event, elem in etree.iterparse(
@@ -11,7 +11,7 @@ def get_namespaces(path):
             events=('start', 'end', 'start-ns', 'end-ns')):
         if event == 'start-ns':
             ns, url = elem
-            nsmap[ns] = url #this eats a lot of memory i think 
+            nsmap[ns] = url #this eats a lot of memory i think
         elif event == 'end-ns':
             pass
         else:
