@@ -15,9 +15,12 @@ def get_namespaces(path):
         elif event == 'end-ns':
             pass
         if event == 'start' and elem.tag == 'Employee':
-            print(elem) # prints out the element 
-            print(elem.get('id')) # for this particular xml file grabs the employee id
-            print(elem.find('name').text) # gets the name of the employee
+            print('Employee id: ', elem.get('id')) # for this particular xml file grabs the employee id
+            print('Employee id: ', elem.find('age').text) # gets the name of the employee
+            print('Employee name: ', elem.find('name').text)
+            print('Employee gender: ', elem.find('gender').text)
+            print('Employee role: ', elem.find('role').text)
+            print('<<-------------------------------------------->>')
         else: # this is an element
             #print(elem.tag) # printing the of the lement
             elem.clear() # clearing the node from memory
